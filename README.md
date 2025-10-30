@@ -1,6 +1,6 @@
-# 🎮 Video Game Sales Prediction (Regression Project)
+# 🎮 Video Game Sales Prediction (Regression Part)
 
-## 📘 Project Overview
+## 📘 Overview
 This project applies **Supervised Machine Learning** techniques to predict **global video game sales** based on categorical features such as platform, genre, and publisher.  
 The goal is to build simple and explainable (white-box) models using **Linear Regression** and **K-Nearest Neighbors (KNN)**.
 
@@ -75,4 +75,95 @@ The goal is to build simple and explainable (white-box) models using **Linear Re
 
 ---
 
-✅ *All work is original and completed for educational purposes.*
+Classification part: Credit Score Prediction
+🎯 Problem Statement
+
+A global financial institution wants to automate its credit scoring process to reduce human bias and improve accuracy.
+The goal is to classify customers into three categories — Poor, Standard, Good — based on financial and behavioral attributes.
+
+🧩 Dataset Overview
+
+Dataset: train.csv from Kaggle’s Credit Score Classification dataset
+
+Total Rows: ~53,000
+
+Features: 28 (demographic, income, loan, and payment history)
+
+Target: Credit_Score (3 classes: Poor, Standard, Good)
+
+⚙️ Data Preparation
+
+Removed irrelevant columns: ID, Customer_ID, Name, SSN, Month
+
+Handled missing values:
+
+Numeric → filled with mean
+
+Categorical → filled with most frequent value
+
+Encoded categorical features using LabelEncoder
+
+Scaled numeric features with StandardScaler (important for KNN)
+
+Train-Test Split: 80% training, 20% testing (stratified)
+
+🧪 Models Implemented
+1️⃣ Logistic Regression
+
+Version 1: Baseline model
+
+Version 2: Tuned with GridSearchCV (C, solver)
+
+Result:
+
+Accuracy ≈ 0.58
+
+F1 Score ≈ 0.50
+
+Interpretation: Performs poorly due to complex non-linear relationships in data, but remains useful for explainability.
+
+2️⃣ K-Nearest Neighbors (KNN)
+
+Version 1: Baseline with k=5
+
+Version 2: Tuned with GridSearchCV
+
+Best Params → n_neighbors=3, weights='distance', metric='manhattan'
+
+Result:
+
+Accuracy ≈ 0.73
+
+F1 Score ≈ 0.72
+
+Interpretation: Captures non-linear relationships effectively and generalizes well.
+
+📊 Model Comparison
+Model	Accuracy	Precision	Recall	F1 Score
+Logistic Regression (v1)	0.58	0.56	0.49	0.50
+Logistic Regression (v2)	0.58	0.56	0.49	0.50
+KNN (v1)	0.60	0.57	0.58	0.57
+KNN (v2 - Tuned)	0.73	0.72	0.71	0.72
+🧠 Insights
+
+Best Model: KNN (Version 2 - Tuned)
+
+Reason: Achieved the best balance between accuracy, recall, and precision.
+
+Feature scaling and tuning had a major impact on KNN performance.
+
+No overfitting observed — consistent training and testing performance.
+
+Logistic Regression remains valuable as a white-box model for transparency and interpretability.
+
+🏁 Final Notes
+
+The project demonstrates the full supervised learning workflow — from data cleaning and feature engineering to model evaluation and tuning.
+For classification tasks with non-linear relationships, KNN proved more effective than Logistic Regression.
+Future work may include:
+
+Trying tree-based models (e.g., Random Forest, XGBoost)
+
+Applying feature importance analysis
+
+Testing imbalanced class handling (e.g., SMOTE)
