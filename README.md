@@ -11,7 +11,7 @@ The goal is to build simple and explainable (white-box) models using **Linear Re
 - **Rows:** ~16,000  
 - **Columns:**
   - Platform, Year, Genre, Publisher
-  - Regional Sales (NA, EU, JP, Other)
+  - Regional Sales (NA, EU, JP, Other) 
   - Global_Sales (target)
 
 **Target Variable:** `Global_Sales`  
